@@ -1,19 +1,18 @@
-import React from 'react'
+import React from "react";
 import { FaShapes } from "react-icons/fa6";
 import { LuShoppingCart } from "react-icons/lu";
 
 const NavBar = () => {
+  // categories for the map
+  const categories = ["2D Shapes", "3D Shapes"];
 
-    // catagories for the map
-    const catagories = ["2D Shapes", "3D Shapes"]
-
-    // Styles
-    const dropdownStyle = {
-      detailsStyle: "relative ml-10 hover:cursor-pointer",
-      summaryStyle: "text-2xl font-semibold",
-      ulStyle: "absolute top-8 left-9",
-      liStyle: "bg-green-400 w-28 text-xl mb-3",
-    };
+  // Styles
+  const dropdownStyle = {
+    detailsStyle: "relative ml-10 hover:cursor-pointer",
+    summaryStyle: "text-2xl font-semibold",
+    ulStyle: "absolute top-8 left-9",
+    liStyle: "bg-green-400 w-28 text-xl mb-3",
+  };
 
   return (
     <div className="flex flex-row p-5 shadow-md items-center">
@@ -23,9 +22,9 @@ const NavBar = () => {
       </div>
 
       <details className={dropdownStyle.detailsStyle}>
-        <summary className={dropdownStyle.summaryStyle}>Catagories</summary>
+        <summary className={dropdownStyle.summaryStyle}>Categories</summary>
         <ul className={dropdownStyle.ulStyle}>
-          {catagories.map((item, index) => (
+          {categories.map((item, index) => (
             <li key={index} className={dropdownStyle.liStyle}>
               {item}
             </li>
@@ -37,7 +36,7 @@ const NavBar = () => {
 
       <div className="absolute right-10 flex flex-row space-x-10">
         <div className="flex flex-row border-2 rounded-full px-5 items-center space-x-1">
-          <LuShoppingCart size={26}/>
+          <LuShoppingCart size={26} />
           <p className="text-lg">0</p>
         </div>
 
@@ -47,6 +46,6 @@ const NavBar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default NavBar
+export default NavBar;
