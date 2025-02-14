@@ -1,6 +1,7 @@
-import Link from "next/link";
+"use client"
 import NavBar from "./components/SSR/NavBar";
 import { FaShapes } from "react-icons/fa6";
+import { FaCircle } from "react-icons/fa";
 
 
 export default function Home() {
@@ -13,9 +14,34 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <main></main>
+      <main className="p-10 ml-20">
+        <div className="flex flex-row space-x-10 mt-44">
+          {/* Recommendation for 2D shapes */}
+          <div className="border-2 border-gray-400 rounded-md p-2">
+            <FaCircle
+              onClick={() => console.log('Navigating to "/UserItemScreen"')}
+              size={200}
+              className="p-7"
+            />
+            <h2 className="font-extrabold text-gray-400">2D Shapes</h2>
+            <h1>Circle</h1>
 
-      <footer className={footerStyle.mainfooter}>
+
+            <h2>£1</h2>
+          </div>
+
+
+
+          {/* Recommendation for 3D shapes */}
+          <div className="border-2 border-gray-400 rounded-md">
+
+            <h1>Circle</h1>
+            <h2>£1</h2>
+          </div>
+        </div>
+      </main>
+
+      {/* <footer className={footerStyle.mainfooter}>
         <div className="flex flex-row space-x-2 items-center">
           <FaShapes size={40} />
           <h1 className="text-3xl font-bold">Shapers</h1>
@@ -26,7 +52,7 @@ export default function Home() {
 
           <h3 className={footerStyle.countryAndPayment}>United Kingdom</h3>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

@@ -1,3 +1,1 @@
-- Added my custom hook "useBasket"
-
-- Added a footer to the homepage
+- 
