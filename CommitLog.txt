@@ -1,1 +1,3 @@
-- 
+- Attempt at adding a search bar to the NavBar
+
+-
