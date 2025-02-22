@@ -3,6 +3,7 @@ import { FaShapes, FaMagnifyingGlass } from "react-icons/fa6";
 import { LuShoppingCart } from "react-icons/lu";
 import { motion } from "framer-motion"
 import styles from "./NavBar.module.css"
+import Link from "next/link";
 
 const NavBar = () => {
   // categories for the map
@@ -42,14 +43,21 @@ const NavBar = () => {
 
       <div className="absolute right-10 flex flex-row space-x-10">
         <div className={searchBarStyle.mainContainer}>
-          <FaMagnifyingGlass size={20}/>
-          <input type="text" placeholder="Search Shapers.co.uk" className={searchBarStyle.inputStyle} />
+          <FaMagnifyingGlass size={20} />
+          <input
+            type="text"
+            placeholder="Search Shapers.co.uk"
+            className={searchBarStyle.inputStyle}
+          />
         </div>
 
-        <div className="flex flex-row border-2 rounded-full px-5 items-center space-x-1">
+        <Link
+          href={"/Random"}
+          className="flex flex-row border-2 rounded-full px-5 items-center space-x-1"
+        >
           <LuShoppingCart size={26} />
           <p className="text-lg">0</p>
-        </div>
+        </Link>
 
         <div className="bg-green-600 rounded-full px-2">
           <h2 className="text-xl text-white p-3 ">Sign In</h2>
