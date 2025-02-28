@@ -1,8 +1,8 @@
 import React from "react";
 import { FaShapes, FaMagnifyingGlass } from "react-icons/fa6";
 import { LuShoppingCart } from "react-icons/lu";
-import { motion } from "framer-motion"
-import styles from "./NavBar.module.css"
+import { motion } from "framer-motion";
+import styles from "./NavBar.module.css";
 import Link from "next/link";
 
 const NavBar = () => {
@@ -17,12 +17,13 @@ const NavBar = () => {
   };
 
   const searchBarStyle = {
-    mainContainer: "border-2 border-gray-300 flex flex-row space-x-5 items-center px-2 pl-4 rounded-full",
-    inputStyle: "text-lg"
-  }
+    mainContainer:
+      "border-2 border-gray-300 flex flex-row space-x-5 items-center px-2 pl-4 rounded-full",
+    inputStyle: "text-lg",
+  };
 
   return (
-    <div className="flex flex-row p-5 shadow-md items-center" >
+    <div className="flex flex-row p-5 shadow-md items-center">
       <Link href={"/"} className="flex flex-row space-x-2 items-center">
         <FaShapes size={40} />
         <h1 className="text-3xl font-bold">Shapers</h1>
@@ -32,9 +33,9 @@ const NavBar = () => {
         <summary className={dropdownStyle.summaryStyle}>Categories</summary>
         <ul className={dropdownStyle.ulStyle}>
           {categories.map((item, index) => (
-            <motion.li key={index} className={styles.listFade}>
+            <li key={index} className={styles.listFade}>
               {item}
-            </motion.li>
+            </li>
           ))}
         </ul>
       </details>
@@ -52,15 +53,21 @@ const NavBar = () => {
         </div>
 
         <Link
-          href={"/Random"}
+          href={"/ShoppingBasket"}
           className="flex flex-row border-2 rounded-full px-5 items-center space-x-1"
         >
           <LuShoppingCart size={26} />
           <p className="text-lg">0</p>
         </Link>
 
-        <div className="bg-green-600 rounded-full px-2">
-          <h2 className="text-xl text-white p-3 ">Sign In</h2>
+        <div className="bg-green-600 rounded-l-full px-2">
+          <h2 className="text-xl text-white p-3">Sign In</h2>
+        </div>
+        <div
+          className="rounded-r-full px-2"
+          style={{ backgroundColor: "#7fffbf" }}
+        >
+          <h2 className="text-xl p-3">Log in</h2>
         </div>
       </div>
     </div>

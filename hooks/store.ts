@@ -8,11 +8,11 @@ export const store = configureStore({
     }
 })
 
-interface obj1 {
-    id: number,
-    name: string,
-    role: string
-}
+// interface obj1 {
+//     id: number,
+//     name: string,
+//     role: string
+// }
 
 
 
