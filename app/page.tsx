@@ -1,14 +1,13 @@
-"use client"
+"use client";
 import NavBar from "./components/SSR/NavBar";
 import { GrCube } from "react-icons/gr";
 import { FaCircle, FaShapes } from "react-icons/fa";
 
-
 export default function Home() {
-
   // Styles
   const footerStyle = {
-    mainfooter: "bg-slate-500 p-20 flex flex-row space-x-10 items-center justify-center",
+    mainfooter:
+      "bg-slate-500 p-20 flex flex-row space-x-10 items-center justify-center",
     countryAndPayment: "border p-2 rounded-sm text-lg",
   };
 
@@ -19,7 +18,7 @@ export default function Home() {
     mainItemStyle: "border-2 border-gray-400 rounded-md px-10 p-5 shadow-lg",
     itemCategory: "font-bold text-gray-400 text-lg",
     itemName: "text-3xl mt-2 font-extrabold",
-    itemPrice: "text-3xl mt-2 font-mono"
+    itemPrice: "text-3xl mt-2 font-mono",
   };
 
   return (
@@ -34,11 +33,7 @@ export default function Home() {
         <div className={recommendationStyle.mainDiv}>
           {/* Recommendation for 2D shapes */}
           <div className={recommendationStyle.mainItemStyle}>
-            <FaCircle
-              onClick={() => console.log('Navigating to "/UserItemScreen"')}
-              size={200}
-              className="p-7"
-            />
+            <FaCircle size={200} className="p-7" />
             <div className="mt-10">
               <h2 className={recommendationStyle.itemCategory}>2D Shapes</h2>
               <h1 className={recommendationStyle.itemName}>Circle</h1>
@@ -61,7 +56,7 @@ export default function Home() {
         </div>
       </main>
 
-      <div className="p-"/>
+      <div className="p-" />
 
       <footer className={footerStyle.mainfooter}>
         <div className="flex flex-row space-x-2 items-center">

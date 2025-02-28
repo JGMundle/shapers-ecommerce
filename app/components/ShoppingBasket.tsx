@@ -15,32 +15,54 @@ let basket = [];
 
 const ShoppingBasket = () => {
   //items
-  let items = Array.from({ length: 20 }, (_, index) => ({
-    id: index + 1,
-    url: `random-${Math.random()}`,
-    name: `name-${index}`,
-    price: index + 10,
-    quantity: 100,
-    category: `cat-${Math.random()}`,
-    description: `desc-${Math.random()}`,
-  }));
+  // let items = Array.from({ length: 20 }, (_, index) => ({
+  //   id: index + 1,
+  //   url: `random-${Math.random()}`,
+  //   name: `name-${index}`,
+  //   price: index + 10,
+  //   quantity: 100,
+  //   category: `cat-${Math.random()}`,
+  //   description: `desc-${Math.random()}`,
+  // }));
+
+  // Styles
+  const ShoppingBasketStyle = {
+
+  }
 
   const store = useStore();
 
   return (
     <div>
-      <div>
-        <h1>ShoppingBasket</h1>
-        {basket.length === 0 && <h3>Basket is Empty</h3>}
+      <div className="bg-white mt-10 p-5 flex flex-row justify-evenly">
+        {/* Titles */}
+        <div
+          className="border-b border-gray-400 pb-3 flex flex-row items-end relative"
+          style={{ width: "60vw" }}
+        >
+          <h1 className="text-4xl font-semibold">Shopping Basket</h1>
+          <p className="absolute right-3 text-lg">Price</p>
+        </div>
+
+        <div className="border-2 p-5">
+          <h1 className="text-2xl">Subtotal &#40;0 items&#41;: &#91;Insert price here&#93;</h1>
+
+          <button>Proceed to checkout</button>
+        </div>
       </div>
-      <div className="flex flex-col space-y-2">
-        {items.map((item, index) => (
+      <div className="flex flex-col space-y-2 p-5 ">
+        {/* {items.map((item, index) => (
           <div key={index}>
             <h1>Item Id: {item.id}</h1>
             <h2>Price: £{item.price}</h2>
             <h2>Link: {item.url}</h2>
           </div>
-        ))}
+        ))} */}
+
+        {/* Basket */}
+        <div className="mt-4">
+          {basket.length === 0 && <h3 className="text-3xl">Basket is Empty</h3>}
+        </div>
       </div>
     </div>
   );

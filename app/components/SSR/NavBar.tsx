@@ -22,11 +22,11 @@ const NavBar = () => {
   }
 
   return (
-    <div className="flex flex-row p-5 shadow-md items-center">
-      <div className="flex flex-row space-x-2 items-center">
+    <div className="flex flex-row p-5 shadow-md items-center" >
+      <Link href={"/"} className="flex flex-row space-x-2 items-center">
         <FaShapes size={40} />
         <h1 className="text-3xl font-bold">Shapers</h1>
-      </div>
+      </Link>
 
       <details className={dropdownStyle.detailsStyle}>
         <summary className={dropdownStyle.summaryStyle}>Categories</summary>
