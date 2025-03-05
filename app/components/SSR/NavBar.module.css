@@ -15,3 +15,30 @@
     background-color: rgb(0, 192, 0);
     transition: background-color ease-in-out 150ms;
 }
+
+
+.signUp {
+    --tw-bg-opacity: 1;
+        background-color: rgb(22 163 74 / var(--tw-bg-opacity, 1));
+    border-bottom-left-radius: 30%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.signUp:hover {
+    cursor: pointer;
+    background-color: rgb(64, 185, 46);
+}
+
+
+.logIn {
+    background-color: #7fffbf;
+    border-top-right-radius: 30%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem
+}
+
+.logIn:hover {
+    cursor: pointer;
+    background-color: #8df3cf;
+}

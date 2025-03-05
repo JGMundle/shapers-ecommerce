@@ -1,7 +1,6 @@
 import React from "react";
 import { FaShapes, FaMagnifyingGlass } from "react-icons/fa6";
 import { LuShoppingCart } from "react-icons/lu";
-import { motion } from "framer-motion";
 import styles from "./NavBar.module.css";
 import Link from "next/link";
 
@@ -54,20 +53,25 @@ const NavBar = () => {
 
         <Link
           href={"/ShoppingBasket"}
-          className="flex flex-row border-2 rounded-full px-5 items-center space-x-1"
+          className="flex flex-row border-2 rounded-full px-5 items-center space-x-1 hover:bg-gray-100 hover:cursor-pointer"
         >
           <LuShoppingCart size={26} />
           <p className="text-lg">0</p>
         </Link>
 
-        <div className="bg-green-600 rounded-l-full px-2">
-          <h2 className="text-xl text-white p-3">Sign In</h2>
-        </div>
-        <div
-          className="rounded-r-full px-2"
-          style={{ backgroundColor: "#7fffbf" }}
-        >
-          <h2 className="text-xl p-3">Log in</h2>
+        <div className="flex flex-row">
+          {/* Sign up */}
+          <Link
+            href={"/loginsignup/signup"}
+            className={styles.signUp}
+          >
+            <h2 className="text-xl text-white p-3">Sign Up</h2>
+          </Link>
+
+          {/* Log in */}
+          <Link href={"/loginsignup/login"} className={styles.logIn}>
+            <h2 className="text-xl p-3">Log in</h2>
+          </Link>
         </div>
       </div>
     </div>
