@@ -33,7 +33,7 @@ const NavBar = () => {
         <ul className={dropdownStyle.ulStyle}>
           {categories.map((item, index) => (
             <li key={index} className={styles.listFade}>
-              {item}
+              <Link href={index === 0 ? "/2DShapes" : ""}>{item}</Link>
             </li>
           ))}
         </ul>
@@ -61,10 +61,7 @@ const NavBar = () => {
 
         <div className="flex flex-row">
           {/* Sign up */}
-          <Link
-            href={"/loginsignup/signup"}
-            className={styles.signUp}
-          >
+          <Link href={"/loginsignup/signup"} className={styles.signUp}>
             <h2 className="text-xl text-white p-3">Sign Up</h2>
           </Link>
 

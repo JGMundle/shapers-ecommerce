@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import ShoppingBasket from '../components/ShoppingBasket'
 import NavBar from '../components/SSR/NavBar'

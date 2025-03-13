@@ -2,7 +2,18 @@
 import NavBar from "./components/SSR/NavBar";
 import { GrCube } from "react-icons/gr";
 import { FaCircle, FaShapes } from "react-icons/fa";
+// import MenuItems from "./components/menuItems";
 
+
+
+//1. Install Prisma
+//2. Create a model for products
+//3. Adding products database
+//4. React Query or useEffect to extract data for viewing on the website
+
+// function generateRandoms = () => {
+//   Array.from("")
+// }
 export default function Home() {
   // Styles
   const footerStyle = {
@@ -53,6 +64,9 @@ export default function Home() {
               <h2 className={recommendationStyle.itemPrice}>£13</h2>
             </div>
           </div>
+
+          {/* Unknown recommendation */}
+          {/* <MenuItems category="Unknown" itemName="Unknown" price={0}/> */}
         </div>
       </main>
 

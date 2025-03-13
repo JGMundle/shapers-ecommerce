@@ -4,9 +4,14 @@ interface Slug {
     params: string
 }
 
-const loginsignup = () => {
+const loginsignup = ({params}: Slug) => {
   return <div>
-    
+    {/* Log In */}
+    <div>
+      
+    </div>
+
+    {/* Sign Up */}
   </div>;
 }
 
