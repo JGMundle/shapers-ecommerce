@@ -23,7 +23,7 @@ const ProductCard = ({category, itemName, price, icon, id}: PropInfo) => {
     };
   
   return (
-    <Link href={`/products/${id}`} className={recommendationStyle.mainDiv} style={{border: "2px solid orange"}}>
+    <Link href={`/products/${id}`} className={recommendationStyle.mainDiv}>
       {/* Recommendation for 2D shapes */}
       {/* Icons */}
       <div className={recommendationStyle.mainItemStyle}>
