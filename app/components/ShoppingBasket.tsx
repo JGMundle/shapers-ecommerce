@@ -1,7 +1,6 @@
+'use client'
 import React from "react";
-import { useDispatch, useStore } from "react-redux";
-import { addItem, BasketItem } from "@/hooks/basketSlice";
-import AddItemButton from "./CSR/Basket/AddItemButton";
+import { useStore } from "react-redux";
 
 let basket = [];
 
@@ -25,8 +24,6 @@ const ShoppingBasket = () => {
   //   description: `desc-${Math.random()}`,
   // }));
 
-  // Styles
-  const ShoppingBasketStyle = {};
 
   const store = useStore();
 

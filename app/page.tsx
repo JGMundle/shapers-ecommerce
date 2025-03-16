@@ -3,6 +3,7 @@ import NavBar from "./components/SSR/NavBar";
 import { GrCube } from "react-icons/gr";
 import { FaCircle } from "react-icons/fa";
 import Footer from "./components/SSR/Footer";
+import RecommendedCard from "./components/CSR/Basket/RecommendedCard";
 // import MenuItems from "./components/menuItems";
 
 
@@ -16,58 +17,39 @@ import Footer from "./components/SSR/Footer";
 //   Array.from("")
 // }
 export default function Home() {
-  // Styles
-  const recommendationStyle = {
-    mainTagStyle: "p-20",
-    mainDiv: "flex flex-row space-x-16 mt-28 justify-center",
 
-    mainItemStyle: "border-2 border-gray-400 rounded-md px-10 p-5 shadow-lg",
-    itemCategory: "font-bold text-gray-400 text-lg",
-    itemName: "text-3xl mt-2 font-extrabold",
-    itemPrice: "text-3xl mt-2 font-mono",
-  };
 
   return (
     <div>
       <NavBar />
-      <main className={recommendationStyle.mainTagStyle}>
+      <main className="p-20">
         <h1 className="text-green-600 text-5xl font-bold">
           Recommended Products
         </h1>
         <p className="text-2xl text-zinc-400">Explore most well known shapes</p>
 
-        <div className={recommendationStyle.mainDiv}>
-          {/* Recommendation for 2D shapes */}
-          <div className={recommendationStyle.mainItemStyle}>
-            <FaCircle size={200} className="p-7" />
-            <div className="mt-10">
-              <h2 className={recommendationStyle.itemCategory}>2D Shapes</h2>
-              <h1 className={recommendationStyle.itemName}>Circle</h1>
-
-              <h2 className={recommendationStyle.itemPrice}>£1</h2>
-            </div>
-          </div>
+        {/* Recommedation for 2D shapes */}
+        <div className="flex flex-row justify-center space-x-20">
+          <RecommendedCard
+            category="2D Shapes"
+            icon={<FaCircle size={200} className="p-7" />}
+            itemName="Circle"
+            price={1}
+          />
 
           {/* Recommendation for 3D shapes */}
-          <div className={recommendationStyle.mainItemStyle}>
-            <GrCube size={200} className="p-7" />
-
-            <div className="mt-10">
-              <h2 className={recommendationStyle.itemCategory}>3D Shapes</h2>
-              <h1 className={recommendationStyle.itemName}>Cube</h1>
-
-              <h2 className={recommendationStyle.itemPrice}>£13</h2>
-            </div>
-          </div>
-
-          {/* Unknown recommendation */}
-          {/* <MenuItems category="Unknown" itemName="Unknown" price={0}/> */}
+          <RecommendedCard
+            category="3D Shapes"
+            icon={<GrCube size={200} className="p-7" />}
+            itemName="Cube"
+            price={13}
+          />
         </div>
       </main>
 
-      <div className="p-" />
+      {/* <div className="p-" /> */}
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }

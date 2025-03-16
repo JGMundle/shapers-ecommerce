@@ -15,7 +15,7 @@ const page = () => {
   return (
     <div>
       <NavBar />
-      <h1 className="text-5xl font-bold my-10">2D Shapers</h1>
+      <h1 className="text-7xl font-bold my-20 ml-10">2D Shapers</h1>
       <div className="grid grid-cols-3 gap-3">
         {/* Square */}
           <ProductCard

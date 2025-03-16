@@ -1,3 +1,3 @@
-- Changed the design of the Log In/Sign Up buttons
+- Add hover effect onto the ProductCard
 
-- Made the ShoppingBasket icon in the NavBar appeal to be more clickable
+-
