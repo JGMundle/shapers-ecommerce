@@ -10,7 +10,7 @@ interface PropInfo {
     id?: string
 }
 
-const RecommendedCard = ({icon, category, itemName, price}: PropInfo) => {
+const RecommendedCard = ({icon, category, itemName, price, id}: PropInfo) => {
   // Styles
   const recommendationStyle = {
     mainDiv: "flex flex-row space-x-16 mt-28 justify-center",
@@ -22,7 +22,7 @@ const RecommendedCard = ({icon, category, itemName, price}: PropInfo) => {
   };
 
     return (
-        <Link href={''} className={recommendationStyle.mainDiv}>
+        <Link href={`/products/${id}`} className={recommendationStyle.mainDiv}>
           {/* Recommendation for 2D shapes */}
           <div className={styles.mainItemStyle}>
                 <div>{icon}</div>

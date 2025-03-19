@@ -15,7 +15,7 @@ const Footer = () => {
         <h1 className="text-2xl font-bold">Shapers</h1>
       </div>
 
-      <div className="flex flex-row text-white space-x-2">
+      <div className="flex flex-row text-white space-x-5">
         <h3 className={footerStyle.countryAndPayment}>£ GBP - Pounds</h3>
 
         <h3 className={footerStyle.countryAndPayment}>United Kingdom</h3>

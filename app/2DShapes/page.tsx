@@ -11,7 +11,7 @@ import { FaCircle } from "react-icons/fa";
 import ProductCard from "../components/CSR/Basket/ProductCard";
 import Footer from "../components/SSR/Footer";
 
-const page = () => {
+const TwoDShapes = () => {
   return (
     <div>
       <NavBar />
@@ -72,4 +72,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default TwoDShapes;
