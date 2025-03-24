@@ -1,8 +1,9 @@
+import { ReactElement } from "react";
 import { create } from "zustand";
 
 interface BasketItem {
   id: number;
-  url: number;
+  icon: ReactElement;
   name: string;
   price: number;
   quantity: number;

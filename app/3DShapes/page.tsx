@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import NavBar from "../components/SSR/NavBar";
 import Footer from "../components/SSR/Footer";
 import ProductCard from "../components/CSR/Basket/ProductCard";
@@ -7,8 +8,33 @@ import { TbSphere, TbCone } from "react-icons/tb";
 import { IoPrismOutline } from "react-icons/io5";
 import { GrCube } from "react-icons/gr";
 import { BiCylinder } from "react-icons/bi";
-
+ 
 const ThreeDShapes = () => {
+  const [userData, setUserData] = useState(null)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  const getUserData = async () => {
+    try {
+      setIsLoading(true)
+      const res = await fetch("http://jsonplaceholder.typicode.com/user")
+      const data = await res.json()
+      if (res.ok) setUserData(data)
+      
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message)
+      }
+    } 
+    finally {
+      setIsLoading(false)
+    }
+    
+  }
+
+  useEffect(() => {
+    getUserData()
+  }, [])
+
   return (
     <div>
       <NavBar />
@@ -63,6 +89,9 @@ const ThreeDShapes = () => {
           price={24}
           icon={<LuCuboid size={190} />}
         />
+      </div>
+      <div>
+        {userData}
       </div>
 
       <Footer />
