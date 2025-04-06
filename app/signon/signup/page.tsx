@@ -12,8 +12,10 @@ const signup = () => {
 
     divStyle: " flex flex-col"
   };
+
+  const longInputWidth = "25rem"
   return (
-    <div className="bg-green-100 ">
+    <div className="bg-green-100" style={{minHeight: "100vh"}}>
       <SignupProgress/>
       <div className="mt-20">
         <h1 className="text-5xl font-bold text-center">
@@ -53,7 +55,7 @@ const signup = () => {
               type="text"
               placeholder="example@email.com"
               className={`${formStyle.inputStyle2}`}
-              style={{width: "24rem"}}
+              style={{width: `${longInputWidth}`}}
             />
           </div>
 
@@ -65,11 +67,11 @@ const signup = () => {
               type="password"
               placeholder="**********"
               className={formStyle.inputStyle2}
-              style={{width: "24rem"}}
+              style={{width: `${longInputWidth}`}}
             />
           </div>
 
-          <button className="mt-5 text-2xl bg-green-500 rounded-md p-4 text-white px-16">Continue</button>
+          <button className="mt-5 text-2xl bg-green-500 rounded-md p-4 text-white px-16 shadow-sm">Continue</button>
         </form>
       </div>
     </div>
