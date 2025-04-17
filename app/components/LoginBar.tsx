@@ -6,7 +6,7 @@ import { IoMdArrowBack } from "react-icons/io";
 const LoginBar = () => {
 
   return (
-      <div className="flex flex-row p-5 shadow-md justify-center bg-white">
+      <div className="flex flex-row p-5 shadow-md bg-white">
           
       <Link href={"/"} className={styles.home}>
         <IoMdArrowBack size={25} className='mr-2'/>

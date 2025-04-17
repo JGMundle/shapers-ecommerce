@@ -25,7 +25,7 @@ const ShoppingBasket = () => {
   // }));
 
 
-  const store = useStore();
+  // const store = useStore();
 
   return (
     <div>

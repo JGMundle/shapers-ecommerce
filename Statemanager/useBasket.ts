@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { create } from "zustand";
 
-interface BasketItem {
+export interface BasketItem {
   id: number;
   icon: ReactElement;
   name: string;
@@ -13,15 +13,19 @@ interface BasketItem {
 
 type BasketStore = {
   items: BasketItem[];
-  favoriteItems: BasketItem[];
   addItem: (item: BasketItem) => void;
   removeItem: (id: number) => void;
   clearBasket: () => void;
+
+  // favouriteItems: BasketItem[];
+  // addFavouriteItem: (item: BasketItem) => void
+  // removeFavouriteItem: (id: string) => void
+  // clearFavouriteItems: () => void
 };
 
 export const useBasket = create<BasketStore>((set) => ({
   items: [],
-  favoriteItems: [],
+
   addItem: (item) =>
     set((state) => {
       const existingItem = state.items.find((i) => i.id === item.id);
@@ -35,9 +39,37 @@ export const useBasket = create<BasketStore>((set) => ({
         return { items: [...state.items, item] };
       }
     }),
+
   removeItem: (id) =>
     set((state) => ({
       items: state.items.filter((item) => item.id !== id),
     })),
+
   clearBasket: () => set({ items: [] }),
 }));
+
+// favoriteItems: [],
+// addToWishlist: (item: BasketItem) =>
+//   set((state) => {
+//     const exists = state.wishlistItems.some((i) => i.id === item.id);
+//     if (!exists) {
+//       return {
+//         wishlistItems: [
+//           ...state.wishlistItems,
+//           { ...item, quantity: undefined },
+//         ],
+//       };
+//     }
+//     return state; // No change if item is already in wishlist
+//   }),
+
+// removeFromWishlist: (id) =>
+//       set((state) => ({
+//         wishlistItems: state.wishlistItems.filter((item) => item.id !== id),
+//       })),
+
+//     clearWishlist: () => set({ wishlistItems: [] }),
+//   }),
+//   {
+//     name: 'store-storage', // Key for localStorage
+//   }

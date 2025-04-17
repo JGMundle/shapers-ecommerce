@@ -1,0 +1,161 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+// Zod schemas (unchanged)
+const personalDetailsSchema = z.object({
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
+
+const bankDetailsSchema = z.object({
+  accountNumber: z
+    .string()
+    .min(8, "Account number must be at least 8 characters"),
+  routingNumber: z.string().length(9, "Routing number must be 9 digits"),
+  bankName: z.string().min(2, "Bank name is required"),
+});
+
+type PersonalDetails = z.infer<typeof personalDetailsSchema>;
+type BankDetails = z.infer<typeof bankDetailsSchema>;
+
+export default function SignUp() {
+  const [step, setStep] = useState(1);
+  const [personalData, setPersonalData] = useState<PersonalDetails | null>(
+    null
+  );
+  const router = useRouter();
+
+  // Log step changes for debugging
+  useEffect(() => {
+    console.log("Current step:", step);
+  }, [step]);
+
+  // Personal Details Form
+  const personalForm = useForm<PersonalDetails>({
+    resolver: zodResolver(personalDetailsSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+  });
+
+  // Bank Details Form
+  const bankForm = useForm<BankDetails>({
+    resolver: zodResolver(bankDetailsSchema),
+    defaultValues: {
+      accountNumber: "",
+      routingNumber: "",
+      bankName: "",
+    },
+  });
+
+  const onPersonalSubmit = (data: PersonalDetails) => {
+    console.log("Personal details submitted:", data);
+    setPersonalData(data);
+    setStep(2);
+  };
+
+  const onBankSubmit = async (data: BankDetails) => {
+    try {
+      console.log("Bank details submitted:", data);
+      const formData = { ...personalData, ...data };
+      console.log("Submitting all data:", formData);
+
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Only redirect after successful submission
+      router.push("/signup/success");
+    } catch (error) {
+      console.error("Submission error:", error);
+    }
+  };
+
+  // Prevent rendering if step is invalid
+  if (step !== 1 && step !== 2) {
+    console.error("Invalid step:", step);
+    setStep(1); // Reset to step 1 if step is invalid
+  }
+
+  return (
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
+      {step === 1 ? (
+        <form
+          onSubmit={personalForm.handleSubmit(onPersonalSubmit)}
+          className="space-y-4"
+        >
+          <h2 className="text-2xl font-bold text-center">Personal Details</h2>
+          {/* Form fields unchanged */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              First Name
+            </label>
+            <input
+              {...personalForm.register("firstName")}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+            />
+            {personalForm.formState.errors.firstName && (
+              <p className="text-red-500 text-sm">
+                {personalForm.formState.errors.firstName.message}
+              </p>
+            )}
+          </div>
+          {/* Other fields (lastName, email, password) unchanged */}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+          >
+            Next
+          </button>
+        </form>
+      ) : (
+        <form
+          onSubmit={bankForm.handleSubmit(onBankSubmit)}
+          className="space-y-4"
+        >
+          <h2 className="text-2xl font-bold text-center">Bank Details</h2>
+          {/* Form fields unchanged */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Bank Name
+            </label>
+            <input
+              {...bankForm.register("bankName")}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+            />
+            {bankForm.formState.errors.bankName && (
+              <p className="text-red-500 text-sm">
+                {bankForm.formState.errors.bankName.message}
+              </p>
+            )}
+          </div>
+          {/* Other fields (accountNumber, routingNumber) unchanged */}
+          <div className="flex space-x-4">
+            <button
+              type="button"
+              onClick={() => setStep(1)}
+              className="w-full bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400"
+            >
+              Back
+            </button>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
+  );
+}

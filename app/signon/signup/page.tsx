@@ -1,7 +1,20 @@
-import SignupProgress from "@/app/components/SignupProgress"
+"use client";
+import SignupProgress from "@/app/components/SignupProgress";
 import React from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { signUpSchemaModel } from "@/app/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const signup = () => {
+  // Form stucture
+  type SignUpFormData = z.infer<typeof signUpSchemaModel>;
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<SignUpFormData>({ resolver: zodResolver(signUpSchemaModel) });
+
   // Styles
   const formStyle = {
     mainForm: "mt-10 flex flex-col items-center",
@@ -10,13 +23,16 @@ const signup = () => {
     inputStyle1: "text-2xl border-2 rounded-md px-3 py-4 shadow-md",
     inputStyle2: "text-2xl border-2 rounded-md px-3 py-4 shadow-md",
 
-    divStyle: " flex flex-col"
+    divStyle: " flex flex-col",
+
+    errorStyle: "text-red-300",
   };
 
-  const longInputWidth = "25rem"
+  const longInputWidth = "25rem";
+
   return (
-    <div className="bg-green-100" style={{minHeight: "100vh"}}>
-      <SignupProgress/>
+    <div className="bg-green-100" style={{ minHeight: "100vh" }}>
+      <SignupProgress />
       <div className="mt-20">
         <h1 className="text-5xl font-bold text-center">
           Sign Up to get started
@@ -32,7 +48,12 @@ const signup = () => {
                 type="text"
                 placeholder="Johnathan"
                 className={formStyle.inputStyle1}
+                {...register("firstName")}
               />
+
+              {errors.firstName && (
+                <p className={formStyle.errorStyle}>First name is required</p>
+              )}
             </div>
 
             <div className={formStyle.divStyle}>
@@ -43,8 +64,13 @@ const signup = () => {
                 type="text"
                 placeholder="Doe"
                 className={formStyle.inputStyle1}
+                {...register("lastName")}
               />
             </div>
+
+            {errors.lastName && (
+              <p className={formStyle.errorStyle}>Last name is required</p>
+            )}
           </div>
 
           <div className={`${formStyle.divStyle} m-10`}>
@@ -52,11 +78,16 @@ const signup = () => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               placeholder="example@email.com"
               className={`${formStyle.inputStyle2}`}
-              style={{width: `${longInputWidth}`}}
+              style={{ width: `${longInputWidth}` }}
+              {...register("email")}
             />
+
+            {errors.email && (
+              <p className={formStyle.errorStyle}>Email address is required</p>
+            )}
           </div>
 
           <div className={`${formStyle.divStyle} m-5`}>
@@ -67,11 +98,21 @@ const signup = () => {
               type="password"
               placeholder="**********"
               className={formStyle.inputStyle2}
-              style={{width: `${longInputWidth}`}}
+              style={{ width: `${longInputWidth}` }}
+              {...register("password")}
             />
+
+            {errors.password && (
+              <p className={formStyle.errorStyle}>Password is required</p>
+            )}
           </div>
 
-          <button className="mt-5 text-2xl bg-green-500 rounded-md p-4 text-white px-16 shadow-sm">Continue</button>
+          <button
+            type="submit"
+            className="mt-5 text-2xl bg-green-500 rounded-md p-4 text-white px-16 shadow-sm"
+          >
+            Continue
+          </button>
         </form>
       </div>
     </div>
