@@ -1,12 +1,10 @@
 "use client";
-import NavBar from "./components/SSR/NavBar";
+import NavBar from "./components/NavBar";
 import { GrCube } from "react-icons/gr";
 import { FaCircle } from "react-icons/fa";
-import Footer from "./components/SSR/Footer";
-import RecommendedCard from "./components/CSR/Basket/RecommendedCard";
+import Footer from "./components/Footer";
+import RecommendedCard from "./components/Basket/RecommendedCard";
 // import MenuItems from "./components/menuItems";
-
-
 
 //1. Install Prisma
 //2. Create a model for products
@@ -17,8 +15,6 @@ import RecommendedCard from "./components/CSR/Basket/RecommendedCard";
 //   Array.from("")
 // }
 export default function Home() {
-
-
   return (
     <div>
       <NavBar />

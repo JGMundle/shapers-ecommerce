@@ -1,31 +1,13 @@
 'use client'
 import React from "react";
 import { useStore } from "react-redux";
-
-let basket = [];
-
-//  id: number;
-//  url: string;
-//  name: string;
-//  price: number;
-//  quantity: number;
-//  category: string;
-//  description: string;
+import { useBasket } from "@/Statemanager/useBasket";
+import ProductCard from "./Basket/ProductCard";
 
 const ShoppingBasket = () => {
-  //items
-  // let items = Array.from({ length: 20 }, (_, index) => ({
-  //   id: index + 1,
-  //   url: `random-${Math.random()}`,
-  //   name: `name-${index}`,
-  //   price: index + 10,
-  //   quantity: 100,
-  //   category: `cat-${Math.random()}`,
-  //   description: `desc-${Math.random()}`,
-  // }));
 
+  let basket = useBasket((state) => state.items)
 
-  // const store = useStore();
 
   return (
     <div>
@@ -60,7 +42,18 @@ const ShoppingBasket = () => {
 
         {/* Basket */}
         <div className="mt-4 ml-20 bg-green-200 p-3">
-          {basket.length === 0 && <h3 className="text-3xl">Basket is Empty</h3>}
+          {basket.length === 0 ? <h3 className="text-3xl">Basket is Empty</h3> :
+            basket.map((item, index) => (
+              <ProductCard key={index}
+                name={item.name}
+                category={item.category}
+                price={item.price}
+                icon={item.icon}
+                id={item.id}
+              />
+            ))
+          }
+    
         </div>
       </div>
     </div>

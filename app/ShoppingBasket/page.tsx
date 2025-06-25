@@ -1,14 +1,13 @@
-import React from 'react'
-import ShoppingBasket from '../components/ShoppingBasket'
-import NavBar from '../components/SSR/NavBar'
+import React from "react";
+import ShoppingBasket from "../components/ShoppingBasket";
+import NavBar from "../components/NavBar";
 
 const Random = () => {
   return (
     <div>
-      <NavBar/>
       <ShoppingBasket />
     </div>
-  )
-}
+  );
+};
 
-export default Random
+export default Random;

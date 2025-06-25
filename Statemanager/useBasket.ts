@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { create } from "zustand";
 
 export interface BasketItem {
-  id: number;
+  id: string;
   icon: ReactElement;
   name: string;
   price: number;
@@ -14,7 +14,7 @@ export interface BasketItem {
 type BasketStore = {
   items: BasketItem[];
   addItem: (item: BasketItem) => void;
-  removeItem: (id: number) => void;
+  removeItem: (id: string) => void;
   clearBasket: () => void;
 
   // favouriteItems: BasketItem[];

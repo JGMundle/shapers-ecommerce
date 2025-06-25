@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactElement, useEffect, useState } from "react";
-import NavBar from "../components/SSR/NavBar";
+import NavBar from "../components/NavBar";
 import { FaSquare, FaCircle } from "react-icons/fa";
 import { FaDiamond } from "react-icons/fa6";
 import {
@@ -8,8 +8,8 @@ import {
   BsHexagonFill,
   BsFillPentagonFill,
 } from "react-icons/bs";
-import ProductCard from "../components/CSR/Basket/ProductCard";
-import Footer from "../components/SSR/Footer";
+import ProductCard from "../components/Basket/ProductCard";
+import Footer from "../components/Footer";
 import axios from "axios";
 
 const TwoDShapes = () => {
@@ -31,7 +31,7 @@ const TwoDShapes = () => {
   ];
   itemValue.map((item) => (
     <ProductCard
-      itemName={item.name}
+      name={item.name}
       category={item.category}
       price={item.price}
       icon={iconMapObject[item.icon]}
@@ -65,12 +65,12 @@ const TwoDShapes = () => {
 
   return (
     <div>
-      <NavBar />
       <h1 className="text-7xl font-bold my-20 ml-10">2D Shapers</h1>
       <div className="grid grid-cols-3 gap-3">
-        {data.map((item) => (
+        {data.map((item, index) => (
           <ProductCard
-            itemName={item.name as string}
+            key={index}
+            name={item.name as string}
             category={item.username as string}
             price={100}
             icon={iconMapObject[item.icon ? item.icon : "triangle"]}

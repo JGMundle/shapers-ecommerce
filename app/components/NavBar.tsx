@@ -1,13 +1,15 @@
+'use client'
 import React from "react";
 import { FaShapes, FaMagnifyingGlass } from "react-icons/fa6";
 import { LuShoppingCart } from "react-icons/lu";
 import styles from "./NavBar.module.css";
 import Link from "next/link";
-
+import { useBasket } from "@/Statemanager/useBasket";
 const NavBar = () => {
   // categories for the map
   const categories = ["2D Shapes", "3D Shapes"];
 
+  let item = useBasket((state) => state.items)
   // Styles
   const dropdownStyle = {
     detailsStyle: "relative ml-10 hover:cursor-pointer",
@@ -62,7 +64,7 @@ const NavBar = () => {
           className="flex flex-row border-2 rounded-full px-5 items-center space-x-1 hover:bg-gray-100 hover:cursor-pointer"
         >
           <LuShoppingCart size={26} />
-          <p className="text-lg">0</p>
+          <p className="text-lg">{item.length}</p>
         </Link>
 
         <div className="flex flex-row">

@@ -1,7 +1,6 @@
 'use client'
-import { addItem, BasketItem } from '@/hooks/basketSlice';
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { BasketItem, useBasket } from '@/Statemanager/useBasket';
 
 interface Props {
   item: BasketItem
@@ -10,10 +9,11 @@ interface Props {
 const AddItemButton = ({item}: Props) => {
   //You need React Redux And redux-toolkit
   //{id: 1, url: "www.google.com", category: "clothes", description: "Very nice", name: "Nike", price: 15, quantity: 1}
-  const dispatch = useDispatch();
+  let { addItem } = useBasket()
+  let storeItem = useBasket((state) => state.items)
 
   const handleAddToBasket = () => {
-    dispatch(addItem(item));
+      addItem(item)
   };
 
   return (
