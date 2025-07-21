@@ -13,12 +13,12 @@ interface PropInfo {
 const RecommendedCard = ({icon, category, itemName, price, id}: PropInfo) => {
   // Styles
   const recommendationStyle = {
-    mainDiv: "flex flex-row space-x-16 mt-28 justify-center",
+    mainDiv: "flex flex-row space-x-16 mt-16 justify-center",
 
     mainItemStyle: "border-2 border-gray-400 rounded-md px-10 p-5 shadow-lg",
     itemCategory: "font-bold text-gray-400 text-lg",
-    itemName: "text-3xl mt-2 font-extrabold",
-    itemPrice: "text-3xl mt-2 font-mono",
+    itemName: "text-2xl mt-2 font-extrabold",
+    itemPrice: "text-2xl mt-2 font-mono",
   };
 
     return (
@@ -32,7 +32,8 @@ const RecommendedCard = ({icon, category, itemName, price, id}: PropInfo) => {
 
                     <h2 className={recommendationStyle.itemPrice}>£{price}</h2>
             </div>
-          </div>
+        </div>
+        <div className='mt-'/>
         </Link>
     );
 }

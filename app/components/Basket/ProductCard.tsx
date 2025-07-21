@@ -1,9 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, { ReactElement, useEffect } from "react";
+import React from "react";
 import styles from "./ProductCard.module.css";
-import { useBasket } from "@/Statemanager/useBasket";
-import { useSearchParams } from "next/navigation";
 import AddItemButton from "./AddItemButton";
 import { BasketItem } from "@/Statemanager/useBasket";
 

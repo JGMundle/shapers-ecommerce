@@ -87,8 +87,6 @@ const ThreeDShapes = () => {
         />
       </div>
       <div>{userData}</div>
-
-      <Footer />
     </div>
   );
 };
