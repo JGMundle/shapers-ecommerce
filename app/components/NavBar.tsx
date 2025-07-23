@@ -1,8 +1,9 @@
 import React from "react";
-import { FaShapes, FaMagnifyingGlass } from "react-icons/fa6";
+import { FaShapes } from "react-icons/fa6";
 import styles from "./NavBar.module.css";
 import Link from "next/link";
 import Basket from "./Basket/Basket";
+import SearchBar from "./SearchBar/SearchBar";
 
 const NavBar = () => {
   // categories for the map
@@ -16,11 +17,6 @@ const NavBar = () => {
     ulStyle: "absolute top-11 left-9 bg-green-400 shadow-lg rounded-md",
   };
 
-  const searchBarStyle = {
-    mainContainer:
-      "border-2 border-gray-300 flex flex-row space-x-5 items-center px-2 pl-4 rounded-full",
-    inputStyle: "text-lg",
-  };
 
   return (
     <div className="flex flex-row p-5 shadow-md items-center">
@@ -49,14 +45,8 @@ const NavBar = () => {
       {/* <div className="rounded-md"/> */}
 
       <div className="absolute right-10 flex flex-row space-x-10">
-        <div className={searchBarStyle.mainContainer}>
-          <FaMagnifyingGlass size={20} />
-          <input
-            type="text"
-            placeholder="Search Shapers.co.uk"
-            className={searchBarStyle.inputStyle}
-          />
-        </div>
+        {/* Where the search bar was */}
+        <SearchBar/>
 
         <Basket/>
 
