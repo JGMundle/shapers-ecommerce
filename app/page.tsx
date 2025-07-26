@@ -17,7 +17,6 @@ import RecommendedCard from "./components/Basket/RecommendedCard";
 export default function Home() {
   return (
     <div>
-      <NavBar />
       <main className="p-16">
         <h1 className="text-green-600 text-4xl font-bold">
           Recommended Products

@@ -1,8 +1,10 @@
 "use client";
 import config from "@/app/config/config";
 import { itemData } from "@/app/utils/productdata";
+import Link from "next/link";
 import React, { ChangeEvent, useState } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+
 
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState<string>("");
@@ -19,10 +21,13 @@ const SearchBar = () => {
   };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(e.target.value);
+    setSearchInput(e.target.value.toLowerCase());
+    
     let result = itemData.filter((item) =>
-      (item.shape.toLowerCase()).includes(e.target.value ? e.target.value.toLowerCase() : e.target.value )
-    );
+      (item.shape.toLowerCase()).includes(e.target.value)
+    ).map((item, _) => {
+        return {...item, shape: item.shape.toLowerCase()}
+    })
     setChoices(result);
     console.log(result);
     console.log(choices);
@@ -47,9 +52,30 @@ const SearchBar = () => {
         <div className="w-52 border rounded-sm absolute">
           <ul>
             {choices.map((item, index) => (
-              <li className={`border ${item.shape.includes(searchInput[0]) && "font-bold"}`} key={index}>
-                    {item.shape}
-              </li>
+              <Link key={index} href={`${config.PROD_URL}/products/${item.id}`}>
+                <li
+                  className={`border ${
+                    item.shape.toLowerCase().includes(searchInput[0]) &&
+                    "font-bold"
+                  }`}
+                  key={index}
+                >
+                  <p>
+                    {item.shape.split("").map((letter, index) => (
+                      <span
+                        key={index}
+                        style={{
+                          fontWeight: searchInput.includes(letter)
+                            ? "bold"
+                            : "normal",
+                        }}
+                      >
+                        {letter}
+                      </span>
+                    ))}
+                  </p>
+                </li>
+              </Link>
             ))}
           </ul>
         </div>

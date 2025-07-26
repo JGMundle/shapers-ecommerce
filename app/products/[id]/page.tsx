@@ -1,6 +1,11 @@
 'use client'
+import { iconMapObject } from '@/app/2DShapes/page';
+import { itemData } from '@/app/utils/productdata';
 import React from 'react'
 import { FaShoppingBag } from "react-icons/fa";
+import { useParams } from 'next/navigation';
+
+
 
 const page = () => {
   // Styles
@@ -18,21 +23,30 @@ const page = () => {
       marginBlock: 10,
     },
   };
-
-
+  
+  function returnIconName(id: string | number): string | undefined {
+      return itemData.find((shape) => shape.id === id)?.icon
+  }
+  
+  const params = useParams()
+  const id = params.id as string
+  
+  function getIcon() {
  
+    const icon = returnIconName(Number(id))
+    if(typeof icon !== "undefined") {
+      return iconMapObject[icon]
+    }
+  }
+  
   return (
     <div style={{ borderColor: "blue", padding: 7 }}>
 
       {/* Item and Image */}
       <h1 style={{ fontWeight: "600", fontSize: 25, marginBlock: 10 }}>
-        {/* {String(itemData.name)} */}
+          <p>This is the id {id}</p>
       </h1>
-      {/* <Image
-        source={Number(itemData.url)}
-        style={{ width: 400, height: 400 }}
-      /> */}
-
+    
       {/* Price */}
       <div>
         {/* <h1 style={{ fontSize: 30 }}>£{Number(itemData.price)}</h1> */}
@@ -44,6 +58,9 @@ const page = () => {
       </div> */}
 
       {/* Description */}
+      <div>
+        {getIcon()}
+      </div>
 
       <h1 style={{ marginTop: 6, fontSize: 19 }}>
         This is a description about the product.
@@ -57,4 +74,4 @@ const page = () => {
   );
 }
 
-export default page
+export default page;
