@@ -48,9 +48,9 @@ const page = () => {
       </h1>
     
       {/* Price */}
-      <div>
-        {/* <h1 style={{ fontSize: 30 }}>£{Number(itemData.price)}</h1> */}
-      </div>
+      {/* <div>
+        <h1 style={{ fontSize: 30 }}>£{Number(itemData.price)}</h1>
+      </div> */}
 
       {/* <div style={styles.addToBasket} onClick={() => handleAddItem()}>
         <FaShoppingBag name="shopping" size={24} style={{ marginRight: 3 }} />
@@ -68,7 +68,7 @@ const page = () => {
 
       {/* Redivs */}
       <h1 style={{ fontSize: 20, marginTop: 20, fontWeight: "600" }}>
-        Customer reviews
+        Customer reviews go here
       </h1>
     </div>
   );

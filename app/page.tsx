@@ -1,9 +1,6 @@
-import NavBar from "./components/NavBar";
 import { GrCube } from "react-icons/gr";
 import { FaCircle } from "react-icons/fa";
-import Footer from "./components/Footer";
 import RecommendedCard from "./components/Basket/RecommendedCard";
-// import MenuItems from "./components/menuItems";
 
 //1. Install Prisma
 //2. Create a model for products
@@ -30,6 +27,7 @@ export default function Home() {
             icon={<FaCircle size={190} className="p-7" />}
             itemName="Circle"
             price={1}
+            
           />
 
           {/* Recommendation for 3D shapes */}

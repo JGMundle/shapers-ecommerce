@@ -1,6 +1,5 @@
 "use client";
-import React, { ReactElement, useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
+import React, { ReactElement, useState } from "react";
 import { FaSquare, FaCircle } from "react-icons/fa";
 import { FaDiamond } from "react-icons/fa6";
 import {
@@ -10,18 +9,18 @@ import {
 } from "react-icons/bs";
 import { TfiLayoutWidthDefaultAlt } from "react-icons/tfi";
 import ProductCard from "../components/Basket/ProductCard";
-import Footer from "../components/Footer";
-import axios from "axios";
 import { itemData } from "../utils/productdata";
 
+const iconSize = 140
+
 export const iconMapObject: { [x: string]: ReactElement } = {
-  triangle: <BsFillTriangleFill />,
-  hexagon: <BsHexagonFill />,
-  pentagon: <BsFillPentagonFill />,
-  circle: <FaCircle />,
-  square: <FaSquare />,
-  diamond: <FaDiamond />,
-  default: <TfiLayoutWidthDefaultAlt />,
+  triangle: <BsFillTriangleFill size={iconSize} />,
+  hexagon: <BsHexagonFill size={iconSize} />,
+  pentagon: <BsFillPentagonFill size={iconSize} />,
+  circle: <FaCircle size={iconSize} />,
+  square: <FaSquare size={iconSize} />,
+  diamond: <FaDiamond size={iconSize} />,
+  default: <TfiLayoutWidthDefaultAlt size={iconSize} />,
 };
 const TwoDShapes = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

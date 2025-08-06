@@ -8,6 +8,7 @@ interface Props {
   children: ReactNode;
 }
 
+//Be sure to end the server and start it again to make sure the full render is successful
 const HIDDEN_PATHS = ["/signon/signup", "/signon/login"];
 
 const MainComponent = ({ children }: Props) => {

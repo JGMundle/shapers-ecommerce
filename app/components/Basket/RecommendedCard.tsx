@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React, { ReactElement } from 'react'
 import styles from "./ProductCard.module.css";
+import { BasketItem } from '@/Statemanager/useBasket';
 
 interface PropInfo {
     icon: ReactElement
