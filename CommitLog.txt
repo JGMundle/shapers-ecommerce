@@ -1,2 +1,1 @@
-- Changing the 3D products from hard coded to using the map method
-and index signatures
+- 

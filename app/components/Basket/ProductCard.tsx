@@ -9,7 +9,7 @@ import { BasketItem } from "@/Statemanager/useBasket";
 const ProductCard = (basket: Partial<BasketItem>) => {
   // styles
   const recommendationStyle = {
-    mainDiv: "flex flex-row justify-center ml-10 mb-5 p-4",
+    // mainDiv: "flex flex-row justify-center ml-10 mb-5 p-4 border-2",
     
     itemCategory: "font-bold text-gray-400 text-lg",
     itemName: "text-3xl mt-2 font-extrabold",
@@ -19,11 +19,10 @@ const ProductCard = (basket: Partial<BasketItem>) => {
   return (
     <Link
       href={`/products/${basket.id}`}
-      className={recommendationStyle.mainDiv}
+      className={styles.mainItemStyle}
     >
       {/* Recommendation for 2D shapes */}
       {/* Icons */}
-      <div className={styles.mainItemStyle}>
         <div>{basket.icon}</div>
         <div className="mt-10">
           <h2 className={recommendationStyle.itemCategory}>
@@ -32,8 +31,6 @@ const ProductCard = (basket: Partial<BasketItem>) => {
           <h1 className={recommendationStyle.itemName}>{basket.name}</h1>
 
           <h2 className={recommendationStyle.itemPrice}>£{basket.price}</h2>
-        </div>
-        <AddItemButton item={basket as BasketItem} />
       </div>
       {/* <div className='bg-gray-200'/> */}
     </Link>

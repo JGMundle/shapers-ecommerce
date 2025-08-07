@@ -16,11 +16,6 @@ type BasketStore = {
   addItem: (item: BasketItem) => void;
   removeItem: (id: string) => void;
   clearBasket: () => void;
-
-  // favouriteItems: BasketItem[];
-  // addFavouriteItem: (item: BasketItem) => void
-  // removeFavouriteItem: (id: string) => void
-  // clearFavouriteItems: () => void
 };
 
 export const useBasket = create<BasketStore>((set) => ({
@@ -47,29 +42,3 @@ export const useBasket = create<BasketStore>((set) => ({
 
   clearBasket: () => set({ items: [] }),
 }));
-
-// favoriteItems: [],
-// addToWishlist: (item: BasketItem) =>
-//   set((state) => {
-//     const exists = state.wishlistItems.some((i) => i.id === item.id);
-//     if (!exists) {
-//       return {
-//         wishlistItems: [
-//           ...state.wishlistItems,
-//           { ...item, quantity: undefined },
-//         ],
-//       };
-//     }
-//     return state; // No change if item is already in wishlist
-//   }),
-
-// removeFromWishlist: (id) =>
-//       set((state) => ({
-//         wishlistItems: state.wishlistItems.filter((item) => item.id !== id),
-//       })),
-
-//     clearWishlist: () => set({ wishlistItems: [] }),
-//   }),
-//   {
-//     name: 'store-storage', // Key for localStorage
-//   }

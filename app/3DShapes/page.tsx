@@ -23,8 +23,8 @@ const ThreeDShapes = () => {
 
   return (
     <div>
-      <h1 className="text-7xl font-bold my-20 ml-10">3D Shapers</h1>
-      <div className="grid grid-cols-3 gap-3">
+      <h1 className="text-7xl font-bold my-10 ml-10">3D Shapers</h1>
+      <div className="grid grid-cols-3 gap-36 p-20">
         {itemDataThreeDimentional.map((item, index) => (
           <ProductCard
             key={index}

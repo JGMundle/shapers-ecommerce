@@ -2,28 +2,12 @@
 import { iconMapObject } from '@/app/2DShapes/page';
 import { itemData } from '@/app/utils/productdata';
 import React from 'react'
-import { FaShoppingBag } from "react-icons/fa";
+
 import { useParams } from 'next/navigation';
 
 
 
 const page = () => {
-  // Styles
-  const styles = {
-    addToBasket: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      backgroundColor: "#2e8bc0",
-      alignContent: "center",
-      justifyContent: "center",
-      borderRadius: 7,
-      paddingBlock: 5,
-
-      marginBlock: 10,
-    },
-  };
-  
   function returnIconName(id: string | number): string | undefined {
       return itemData.find((shape) => shape.id === id)?.icon
   }
@@ -52,10 +36,7 @@ const page = () => {
         <h1 style={{ fontSize: 30 }}>£{Number(itemData.price)}</h1>
       </div> */}
 
-      {/* <div style={styles.addToBasket} onClick={() => handleAddItem()}>
-        <FaShoppingBag name="shopping" size={24} style={{ marginRight: 3 }} />
-        <p>Add to Basket</p>
-      </div> */}
+      {/* This is where the "Add item button" was */}
 
       {/* Description */}
       <div>

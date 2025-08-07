@@ -12,7 +12,7 @@ const SearchBar = () => {
 
   const searchBarStyle = {
     mainContainer:
-      "border-2 border-gray-300 flex flex-row space-x-5 items-center px-2 pl-4 rounded-full",
+      "border-2 border-gray-300 flex flex-row space-x-5 items-center px-2 pl-4 mt-3 rounded-full",
     inputStyle: "text-lg",
   };
 
