@@ -1,6 +1,11 @@
 import { GrCube } from "react-icons/gr";
 import { FaCircle } from "react-icons/fa";
 import RecommendedCard from "./components/Basket/RecommendedCard";
+import { recommendedItemDate } from "./utils/productdata";
+import { ReactElement } from "react";
+import { TfiLayoutWidthDefaultAlt } from "react-icons/tfi";
+import Dropdown from "./components/Dropdown/Dropdown";
+import DropdownItems from "./components/Dropdown/DropdownItems";
 
 //1. Install Prisma
 //2. Create a model for products
@@ -11,7 +16,16 @@ import RecommendedCard from "./components/Basket/RecommendedCard";
 //   Array.from("")
 // }
 
+const iconSize = 140
+
+export const iconMapObject: { [x: string]: ReactElement } = {
+  circle: <FaCircle size={iconSize} />,
+    cube: <GrCube size={iconSize} />,
+  default: <TfiLayoutWidthDefaultAlt size={iconSize} />,
+};
+
 export default function Home() {
+  const items = [1, 2, 3, 4]
   return (
     <div>
       <main className="p-16">
@@ -22,25 +36,20 @@ export default function Home() {
 
         {/* Recommedation for 2D shapes */}
         <div className="flex flex-row justify-center space-x-20">
-          <RecommendedCard
-            category="2D Shapes"
-            icon={<FaCircle size={190} className="p-7" />}
-            itemName="Circle"
-            price={1}
-            
-          />
-
-          {/* Recommendation for 3D shapes */}
-          <RecommendedCard
-            category="3D Shapes"
-            icon={<GrCube size={190} className="p-7" />}
-            itemName="Cube"
-            price={13}
-          />
+          {recommendedItemDate.map((item, index) => (
+            <RecommendedCard
+              key={index}
+              icon={iconMapObject[item.icon ? item.icon : "default"]}
+              category={item.category as string}
+              name={item.shape}
+              price={item.price}
+              id={String(item.id)}
+            />
+          ))}
         </div>
       </main>
 
-      {/* <div className="p-" /> */}
+      <div className="bg-green-400" />
     </div>
   );
 }

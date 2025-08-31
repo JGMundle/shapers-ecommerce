@@ -4,6 +4,8 @@ import styles from "./NavBar.module.css";
 import Link from "next/link";
 import Basket from "./Basket/Basket";
 import SearchBar from "./SearchBar/SearchBar";
+import Dropdown from "./Dropdown/Dropdown";
+import DropdownItems from "./Dropdown/DropdownItems";
 
 const NavBar = () => {
   // categories for the map
@@ -12,7 +14,7 @@ const NavBar = () => {
   
   // Styles
   const dropdownStyle = {
-    detailsStyle: "relative ml-10 hover:cursor-pointer",
+    detailsStyle: "relative ml-10 ",
     summaryStyle: "text-2xl font-semibold",
     ulStyle: "absolute top-11 left-9 bg-green-400 shadow-lg rounded-md",
   };
@@ -25,7 +27,7 @@ const NavBar = () => {
         <h1 className="text-2xl font-bold">Shapers</h1>
       </Link>
 
-      <details className={dropdownStyle.detailsStyle}>
+      {/* <details className={dropdownStyle.detailsStyle}>
         <summary className={dropdownStyle.summaryStyle}>Categories</summary>
         <ul className={dropdownStyle.ulStyle}>
           {categories.map((item, index) => (
@@ -40,15 +42,36 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
-      </details>
+      </details> */}
+
+      <div className={dropdownStyle.detailsStyle}>
+        <Dropdown
+          buttonText="Categories"
+          content={
+            <>
+              {categories.map((item, index) => (
+                <DropdownItems key={index}>
+                  <Link
+                    href={
+                      index === 0 ? "/2DShapes" : index === 1 ? "/3DShapes" : ""
+                    }
+                  >
+                    {item}
+                  </Link>
+                </DropdownItems>
+              ))}
+            </>
+          }
+        />
+      </div>
 
       {/* <div className="rounded-md"/> */}
 
       <div className="absolute right-10 flex flex-row space-x-10">
         {/* Where the search bar was */}
-        <SearchBar/>
+        <SearchBar />
 
-        <Basket/>
+        <Basket />
 
         <div className="flex flex-row">
           {/* Sign up */}

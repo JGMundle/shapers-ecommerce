@@ -1,20 +1,13 @@
 import Link from 'next/link'
-import React, { ReactElement } from 'react'
-import styles from "./ProductCard.module.css";
+import React from 'react'
+import styles from "./RecommendedCard.module.css";
 import { BasketItem } from '@/Statemanager/useBasket';
 
-interface PropInfo {
-    icon: ReactElement
-    category: string
-    itemName: string
-    price: number
-    id?: string
-}
 
-const RecommendedCard = ({icon, category, itemName, price, id}: PropInfo) => {
+const RecommendedCard = (basket: Partial<BasketItem>) => {
   // Styles
   const recommendationStyle = {
-    mainDiv: "flex flex-row space-x-16 mt-16 justify-center",
+    // mainDiv: "flex flex-row space-x-16 mt-16 justify-center",
 
     mainItemStyle: "border-2 border-gray-400 rounded-md px-10 p-5 shadow-lg",
     itemCategory: "font-bold text-gray-400 text-lg",
@@ -23,19 +16,16 @@ const RecommendedCard = ({icon, category, itemName, price, id}: PropInfo) => {
   };
 
     return (
-        <Link href={`/products/${id}`} className={recommendationStyle.mainDiv}>
-          {/* Recommendation for 2D shapes */}
-          <div className={styles.mainItemStyle}>
-                <div>{icon}</div>
-            <div className="mt-10">
-                    <h2 className={recommendationStyle.itemCategory}>{category}</h2>
-                    <h1 className={recommendationStyle.itemName}>{itemName}</h1>
-
-                    <h2 className={recommendationStyle.itemPrice}>£{price}</h2>
-            </div>
-        </div>
-        <div className='mt-'/>
-        </Link>
+      <Link href={`/products/${basket.id}`} className={styles.mainItemStyle}>
+        {/* Recommendation for 2D shapes */}
+          <div>{basket.icon}</div>
+          <div className="mt-10">
+            <h2 className={recommendationStyle.itemCategory}>{basket.category}</h2>
+            <h1 className={recommendationStyle.itemName}>{basket.name}</h1>
+            <h2 className={recommendationStyle.itemPrice}>£{basket.price}</h2>
+          </div>
+        {/* <div className="mt-" /> */}
+      </Link>
     );
 }
 

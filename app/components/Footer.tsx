@@ -20,6 +20,8 @@ const Footer = () => {
 
         <h3 className={footerStyle.countryAndPayment}>United Kingdom</h3>
       </div>
+
+      {/* <div className=' main'/> */}
     </footer>
   );
 }

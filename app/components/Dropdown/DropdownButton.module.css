@@ -1,0 +1,9 @@
+.dropdown-btn { 
+ display: flex;
+ align-items: center;
+ width: fit-content;
+ padding-bottom: 0.5rem;
+ background-color: white;
+ border-radius: 0.5rem;
+ cursor: pointer;
+}

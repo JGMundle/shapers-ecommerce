@@ -1,1 +1,1 @@
-- 
+- Changed the Categories dropdown to a custom component instead of using hard coded HTML tags
