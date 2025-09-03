@@ -16,11 +16,11 @@ const MainComponent = ({ children }: Props) => {
   const hideLayout =
     HIDDEN_PATHS.includes(pathname) 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       {!hideLayout && <NavBar />}
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       {!hideLayout && <Footer />}
-    </>
+    </div>
   );
 };
 

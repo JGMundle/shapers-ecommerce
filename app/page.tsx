@@ -1,6 +1,6 @@
 import { GrCube } from "react-icons/gr";
 import { FaCircle } from "react-icons/fa";
-import RecommendedCard from "./components/Basket/RecommendedCard";
+import RecommendedCard from "@/app/components/ProductCards/RecommendedCard";
 import { recommendedItemDate } from "./utils/productdata";
 import { ReactElement } from "react";
 import { TfiLayoutWidthDefaultAlt } from "react-icons/tfi";
@@ -25,7 +25,6 @@ export const iconMapObject: { [x: string]: ReactElement } = {
 };
 
 export default function Home() {
-  const items = [1, 2, 3, 4]
   return (
     <div>
       <main className="p-16">

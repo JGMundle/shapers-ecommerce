@@ -1,5 +1,11 @@
 "use client";
-import React, { ReactNode, useState, useEffect, useRef, MouseEvent } from "react";
+import React, {
+  ReactNode,
+  useState,
+  useEffect,
+  useRef,
+  MouseEvent,
+} from "react";
 import DropdownButton from "./DropdownButton";
 import DropdownContent from "./DropdownContent";
 
@@ -11,22 +17,32 @@ interface Props {
 const Dropdown = ({ buttonText, content }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
-  const dropdownRef = useRef(null)
+  /* When targeting a specific node/tag in Typescript react, be sure to have the right "type"for the 
+  useRef. For example, we're targeting the <div>. So, our "type" is going to be useRef<HTMLDivElement | null> */
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const toggleDropdown = () => {
-    setOpen(open => !open)
-  }
+    setOpen((open) => !open);
+  };
 
-  /* This is where I try and create the functionality for the dropdown to close when you click outside 
-  of the content box. But I can't seem to find the right type. */
-  
-  // useEffect(() => {
-  //   const handleClick = (e: MouseEvent) => {
-  //     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-  //       setOpen(false)
-  //     }
-  //   }
-  // }, [dropdownRef])
+  useEffect(() => {
+    /* Since we ran into an issue with the typing for the MouseEvent, what happend is we had the wrong type of MouseEvent
+    Remember that there's two types: DOM & React synthetic. In this case, we want to use the DOM one, that's why we have 
+    "globalThis.MouseEvent so our "handleClicks don't flag errors */
+
+    const handleClick = (e: globalThis.MouseEvent) => {
+      if (!(e.target instanceof Node)) return; // ✅ runtime check, safe narrowing For Typescript to understand what we want
+
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, [dropdownRef]);
 
   return (
     <div className="relative top-1 left-5" ref={dropdownRef}>

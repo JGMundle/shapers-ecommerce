@@ -27,7 +27,7 @@ export const useBasket = create<BasketStore>((set) => ({
       if (existingItem) {
         return {
           items: state.items.map((i) =>
-            i.id === item.id ? { ...item, quantity: i.quantity } : i
+            i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
           ),
         };
       } else {

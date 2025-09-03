@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactElement } from "react";
-import ProductCard from "../components/Basket/ProductCard";
+import ProductCard from "../components/ProductCards/ProductCard";
 import { LuCuboid } from "react-icons/lu";
 import { TbSphere, TbCone } from "react-icons/tb";
 import { IoPrismOutline } from "react-icons/io5";
@@ -32,6 +32,7 @@ const ThreeDShapes = () => {
             category={item.category as string}
             price={item.price}
             icon={threeDimentinalIconMapObject[item.icon ? item.icon : "default"]}
+            id={String(item.id)}
           />
             
           ))}

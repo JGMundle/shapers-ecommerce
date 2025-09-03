@@ -2,9 +2,12 @@
 import { iconMapObject } from "@/app/2DShapes/page";
 import { itemData } from "@/app/utils/productdata";
 import React from "react";
+import { BasketItem, useBasket } from "@/Statemanager/useBasket";
 
 import { useParams } from "next/navigation";
 import AddItemButton from "@/app/components/Basket/AddItemButton";
+
+
 
 const page = () => {
   function returnIconName(id: string | number): string | undefined {
@@ -21,6 +24,7 @@ const page = () => {
     }
   }
 
+
   return (
     <div className="p-20">
       {/* Item and Image */}
@@ -31,8 +35,8 @@ const page = () => {
         <h1 style={{ fontSize: 30 }}>£</h1>
       </div>
 
-      {/* This is where the "Add item button" was */}
-      {/* <AddItemButton item={}/> */}
+      {/* This is where the "Add item button" was*/}
+      {/* <AddItemButton item={} /> */}
 
       {/* Description */}
 

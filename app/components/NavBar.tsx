@@ -3,7 +3,7 @@ import { FaShapes } from "react-icons/fa6";
 import styles from "./NavBar.module.css";
 import Link from "next/link";
 import Basket from "./Basket/Basket";
-import SearchBar from "./SearchBar/SearchBar";
+import SearchBar from "./SearchBar";
 import Dropdown from "./Dropdown/Dropdown";
 import DropdownItems from "./Dropdown/DropdownItems";
 

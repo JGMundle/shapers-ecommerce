@@ -8,7 +8,7 @@ import {
   BsFillPentagonFill,
 } from "react-icons/bs";
 import { TfiLayoutWidthDefaultAlt } from "react-icons/tfi";
-import ProductCard from "../components/Basket/ProductCard";
+import ProductCard from "../components/ProductCards/ProductCard";
 import { itemData } from "../utils/productdata";
 
 const iconSize = 140
@@ -30,31 +30,6 @@ const TwoDShapes = () => {
   //So that we can store the data of our shopping items with keys and display icons on the scren based on the keys
 
   // [x:string]: ReactElement - Index signature to allow for unlimited new key-value pairs
-
-  // const getItems = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     const response = await axios.get(
-  //       "https://jsonplaceholder.typicode.com/users"
-  //     );
-  //     if (response.status === 400) {
-  //       console.log("Error in attemping to extract data from backend source");
-  //     }
-  //     const data = await response.data;
-  //     setData(data);
-  //     return;
-  //   } catch (error) {
-  //     if (error instanceof Error) {
-  //       console.error("Error: ", error.message);
-  //     }
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getItems();
-  // }, []);
 
   return (
     <div>
